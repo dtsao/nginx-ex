@@ -7,6 +7,8 @@ rc=$?
 
 if [ $rc -eq 0 ]; then
     echo "After successful assembling"
+    echo "edit nginx.conf to disable ipv6"
+    sed -i.bak '/\[::]:8080/d' ${NGINX_CONF_PATH}
 else
     echo "After failed assembling"
 fi
