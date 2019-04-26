@@ -1,0 +1,14 @@
+#!/bin/bash
+# from https://docs.openshift.com/container-platform/3.6/using_images/s2i_images/customizing_s2i_images.html
+echo "--> Before assembling"
+
+/usr/libexec/s2i/assemble
+rc=$?
+
+if [ $rc -eq 0 ]; then
+    echo "After successful assembling"
+else
+    echo "After failed assembling"
+fi
+
+exit $rc
