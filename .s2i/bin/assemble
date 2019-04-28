@@ -19,8 +19,8 @@ echo "edit nginx.conf to disable ipv6"
 #sudo sed -i.bak '/\[::]:8080/d' ${NGINX_CONF_PATH} 
 # error: /tmp/scripts/assemble: line 16: sudo: command not found
 
-echo "chmod 777 /ect/ope/rh/rh=nginx112"
-chmod 777 /ect/ope/rh/rh=nginx112
+echo "chmod 777 /etc/opt/rh/rh-nginx112"
+chmod 777 /etc/opt/rh/rh-nginx112
 
 echo "ls -l /etc/opt/rh/rh-nginx112"
 ls -l /etc/opt/rh/rh-nginx112
