@@ -8,6 +8,7 @@ echo "--> Before assembling"
 echo "NGINX_CONF_PATH env var:" 
 echo ${NGINX_CONF_PATH}
 ls -l ${NGINX_CONF_PATH}
+ls -l /etc/opt/rh/rh-nginx112/nginx
 echo "edit nginx.conf to disable ipv6"
 sed -i.bak '/\[::]:8080/d' ${NGINX_CONF_PATH} 
 
