@@ -3,8 +3,10 @@
 # normal assemble script is from https://github.com/sclorg/nginx-container/blob/master/1.12/s2i/bin/assemble
 echo "--> Before assembling"
 
-echo "edit nginx.conf to disable ipv6"
-sed -i.bak '/\[::]:8080/d' ./nginx.conf 
+#echo "edit nginx.conf to disable ipv6"
+#sed -i.bak '/\[::]:8080/d' ./nginx.conf # causes: sed: can't read ./nginx.conf: No such file or directory
+echo "NGINX_CONF_PATH env var:" 
+echo ${NGINX_CONF_PATH}
 
 /usr/libexec/s2i/assemble
 rc=$?
