@@ -7,6 +7,10 @@ echo "--> Before assembling"
 #sed -i.bak '/\[::]:8080/d' ./nginx.conf # causes: sed: can't read ./nginx.conf: No such file or directory
 echo "NGINX_CONF_PATH env var:" 
 echo ${NGINX_CONF_PATH}
+ls -l ${NGINX_CONF_PATH}
+echo "edit nginx.conf to disable ipv6"
+sed -i.bak '/\[::]:8080/d' ${NGINX_CONF_PATH} 
+
 
 /usr/libexec/s2i/assemble
 rc=$?
