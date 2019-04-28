@@ -13,7 +13,7 @@ ls -l /etc/opt/rh/rh-nginx112/nginx
 echo "show folder perm for /etc/opt/rh/rh-nginx112"
 ls -l /etc/opt/rh/rh-nginx112
 echo "edit nginx.conf to disable ipv6"
-sed -i.bak '/\[::]:8080/d' ${NGINX_CONF_PATH} 
+sudo sed -i.bak '/\[::]:8080/d' ${NGINX_CONF_PATH} 
 # error: sed: couldn't open temporary file /etc/opt/rh/rh-nginx112/nginx/sedGEFJLK: Permission denied
 
 
