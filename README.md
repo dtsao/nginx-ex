@@ -16,7 +16,11 @@ $ # browse to http://localhost:8080
 You can also build and deploy the application on OpenShift, assuming you have a
 working `oc` command line environment connected to your cluster already:
 
-`$ oc new-app centos/nginx-112-centos7~https://github.com/sclorg/nginx-ex`
+`$ oc new-app openshift/nginx:1.12~https://github.com/dtsao/nginx-ex `
+
+Add for testing:
+
+ `--dry-run=true -o=yaml | code -`
 
 You can also deploy the sample template for the application:
 

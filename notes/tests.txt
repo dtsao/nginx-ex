@@ -1,0 +1,1 @@
+nginx.conf and index.html in root - deploys correctly to openshift via command in readme.md
