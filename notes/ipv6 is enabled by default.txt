@@ -1,0 +1,9 @@
+After removing nginx.conf so pod uses the default nginx.conf from the s2i image, redeploy. Now pod is crashing with this error:
+
+
+2019/07/24 21:49:15 [emerg] 1#0: socket() [::]:8080 failed (97: Address family not supported by protocol)
+nginx: [emerg] socket() [::]:8080 failed (97: Address family not supported by protocol)
+
+IPV6 is not enabled.
+
+Adding nginx.conf back to disable IPV6.
