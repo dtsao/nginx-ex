@@ -1,0 +1,19 @@
+$ oc get all -l app=nginx-ex
+
+NAME                         REVISION   DESIRED   CURRENT   TRIGGERED BY
+deploymentconfigs/nginx-ex   2          1         1         config,image(nginx-ex:latest)
+NAME                    TYPE      FROM      LATEST
+buildconfigs/nginx-ex   Source    Git       1
+NAME                TYPE      FROM          STATUS     STARTED          DURATION
+builds/nginx-ex-1   Source    Git@d5562d1   Complete   16 minutes ago   23s
+NAME                    DOCKER REPO                                      TAGS      UPDATED
+imagestreams/nginx-ex   docker-registry.default.svc:5000/dprp/nginx-ex   latest    16 minutes ago
+NAME              HOST/PORT                            PATH      SERVICES   PORT       TERMINATION   WILDCARD
+routes/nginx-ex   nginx-ex-dprp.services-dev.cdc.gov             nginx-ex   8080-tcp                 None
+NAME                  READY     STATUS    RESTARTS   AGE
+po/nginx-ex-2-xhps2   1/1       Running   0          16m
+NAME            DESIRED   CURRENT   READY     AGE
+rc/nginx-ex-1   0         0         0         16m
+rc/nginx-ex-2   1         1         1         16m
+NAME           TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)             AGE
+svc/nginx-ex   ClusterIP   172.30.130.215   <none>        8080/TCP,8443/TCP   16m
