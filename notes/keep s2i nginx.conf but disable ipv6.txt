@@ -1,0 +1,18 @@
+Try to use the default nginx.conf from the s2i image which has ipv6 enabled, but disable ipv6 in a custom config file.
+
+This didn't work:
+
+commit d60407236762a46b142652996d0de177849b272e (HEAD -> master, origin/master, origin/HEAD)
+Author: David Tsao <dht4@cdc.gov>
+Date:   Thu Jul 25 11:47:33 2019 -0400
+
+    Move disable-ipv6.conf to build\nginx-cfg per https://github.com/sclorg/nginx-container/tree/master/examples/1.14/test-app/nginx-cfg
+
+The pod is crashing with this error:
+
+2019/07/25 15:48:45 [emerg] 1#0: a duplicate default server for 0.0.0.0:8080 in /etc/opt/rh/rh-nginx112/nginx/nginx.conf:39
+nginx: [emerg] a duplicate default server for 0.0.0.0:8080 in /etc/opt/rh/rh-nginx112/nginx/nginx.conf:39
+
+Per comments here: https://stackoverflow.com/a/30974115 you can only have one default_server entry
+
+Try removing default_server from build\nginx-cfg\disable-ipv6.conf
