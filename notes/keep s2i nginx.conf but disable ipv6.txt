@@ -16,3 +16,22 @@ nginx: [emerg] a duplicate default server for 0.0.0.0:8080 in /etc/opt/rh/rh-ngi
 Per comments here: https://stackoverflow.com/a/30974115 you can only have one default_server entry
 
 Try removing default_server from build\nginx-cfg\disable-ipv6.conf
+
+commit 417e6a8afb8824a89a8ed002f4428410a9f4bd13 (HEAD -> master, origin/master, origin/HEAD)
+Author: David Tsao <dht4@cdc.gov>
+Date:   Thu Jul 25 12:01:01 2019 -0400
+
+    Try removing default_server from build\nginx-cfg\disable-ipv6.conf to fix nginx: [emerg] a duplicate default server for 0.0.0.0:8080 in /etc/opt/rh/rh-nginx112/nginx/nginx.conf:39
+
+Now pod is crashing with a different error:
+
+2019/07/25 16:03:35 [warn] 1#0: conflicting server name "_" on 0.0.0.0:8080, ignored
+nginx: [warn] conflicting server name "_" on 0.0.0.0:8080, ignored
+2019/07/25 16:03:35 [emerg] 1#0: socket() [::]:8080 failed (97: Address family not supported by protocol)
+nginx: [emerg] socket() [::]:8080 failed (97: Address family not supported by protocol)
+
+Basically, IPV6 still enabled.
+
+So this is not working!
+
+
