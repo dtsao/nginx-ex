@@ -16,6 +16,7 @@
 # contains it, so we can't use the 'sed -i' argument to modify the file in place
 cp "$NGINX_CONF_PATH" /tmp
 sed -i "/\[::\]:8080/ s/listen/#listen/" /tmp/nginx.conf
+# from https://stackoverflow.com/a/23483717:
 sed -ri '/location \//,/.*\}/d' /tmp/nginx.conf
 cp /tmp/nginx.conf $NGINX_CONF_PATH
 rm /tmp/nginx.conf
